@@ -1,23 +1,20 @@
 #include<iostream>
-#include<cmath>
 using namespace std;
 
-int convert(int x){
-    int rem=0,code=0;
-    while(x>0){
-    rem=x%2;
-    rem=rem*10+rem;
-    if(x==1){
-        code=rem*10+x;
+void dectoBin(int n){
+    int rem=0,pow=1,bin=0;
+    while(n>0){
+        rem=n%2;
+        bin+=rem*pow;
+        pow=pow*10;
+        n=n/2;
     }
-    x=x/2;
-    
-    }return code;
+    cout<<"decimal is "<<bin;
 }
-
 int main(){
     int n;
+    cout<<"enter number ";
     cin>>n;
-    cout<<convert(n);
+    dectoBin(n);
     return 0;
 }
